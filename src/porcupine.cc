@@ -128,7 +128,7 @@ static bool parseKeyword(v8::Local<v8::Value> keyword, std::string &keyword_file
         }
 
         v8::MaybeLocal<v8::String> filePathVal = Nan::To<v8::String>(Nan::Get(keywordObject, filePathKeyStr).ToLocalChecked());
-        v8::Maybe<double> sensitivityVal = Nan::To<double>(Nan::Get(keywordObject, sensitivityKeyStr).ToLocalChecked());
+        Nan::Maybe<double> sensitivityVal = Nan::To<double>(Nan::Get(keywordObject, sensitivityKeyStr).ToLocalChecked());
         if (filePathVal.IsEmpty() || sensitivityVal.IsNothing())
         {
             return false;
